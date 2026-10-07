@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
 import 'data.dart';
-import 'island_screen.dart';
 
 /// One island in the grid: photo on top, name below.
 ///
@@ -16,10 +17,7 @@ class IslandCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () async {
-          final favorite = await Navigator.push<bool>(
-            context,
-            MaterialPageRoute(builder: (_) => IslandScreen(id: island.id)),
-          );
+          final favorite = await context.push<bool>('/island/${island.id}');
           if (favorite == true && context.mounted) {
             // the card may be gone
             ScaffoldMessenger.of(context).showSnackBar(
