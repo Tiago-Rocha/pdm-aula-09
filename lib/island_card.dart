@@ -5,8 +5,7 @@ import 'data.dart';
 /// One island in the grid: photo on top, name below.
 ///
 /// TODO 1: wrap the Column in an InkWell. On tap, open IslandScreen with
-/// Navigator.push and wait for its result; if it is true, show a SnackBar
-/// with the island name and 'nos favoritos'.
+/// Navigator.push.
 class IslandCard extends StatelessWidget {
   const IslandCard({super.key, required this.island});
 
