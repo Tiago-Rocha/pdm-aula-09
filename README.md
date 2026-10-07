@@ -20,7 +20,7 @@ O repositório tem um branch por passo. `main` é o ponto de partida; `passo-3` 
 
 | Passo | Branch | O que fazes | Na app |
 |---|---|---|---|
-| 1 | `passo-1` | `IslandCard` com um `InkWell` que faz `Navigator.push` do `IslandScreen` e espera o resultado; a estrela do `IslandScreen` faz `Navigator.pop(context, true)`. | Tocar numa ilha abre-a; a estrela volta à grelha e mostra "Pico nos favoritos". |
+| 1 | `passo-1` | `IslandCard` com um `InkWell` que faz `Navigator.push` do `IslandScreen`. | Tocar numa ilha abre-a; a seta ← volta à grelha. |
 | 2 | `passo-2` | `lib/router.dart` com um `GoRouter` (`/` e `/island/:id`), `MaterialApp.router` e `context.push('/island/${island.id}')`. | Igual ao passo 1; no Chrome, o URL muda para `/island/pico`. |
 | 3 | `passo-3` | `StatefulShellRoute.indexedStack` com uma `NavigationBar` de três separadores: Previsão, Avisos e Definições. | Abres uma ilha, vais a Avisos, voltas a Previsão: a ilha continua aberta. |
 
