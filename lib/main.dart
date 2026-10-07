@@ -8,9 +8,6 @@ void main() {
 }
 
 /// App root: one MaterialApp per app, with the theme and the router.
-///
-/// TODO 4: a light and a dark theme from the same seed colour, and themeMode
-/// from settings_screen.dart.
 class WeatherApp extends StatelessWidget {
   const WeatherApp({super.key});
 

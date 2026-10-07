@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// The theme chosen by the user. A ValueNotifier holds one value and tells
-/// whoever listens when it changes: WeatherApp listens, in main.dart.
-final themeMode = ValueNotifier(ThemeMode.system);
-
-/// Settings tab.
+/// Settings tab. For now it only shows the app version.
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -13,12 +9,12 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Definições')),
       body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          Text('Tema', style: Theme.of(context).textTheme.titleMedium),
-          const SizedBox(height: 8),
-          // TODO 4: a SegmentedButton<ThemeMode> with Sistema, Claro and
-          // Escuro, that shows themeMode.value and changes it.
+        children: const [
+          ListTile(
+            leading: Icon(Icons.info_outline),
+            title: Text('Tempo Açores'),
+            subtitle: Text('Versão 1.0.0'),
+          ),
         ],
       ),
     );
