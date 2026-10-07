@@ -1,4 +1,4 @@
-# pdm-aula-09 · Navegação e temas
+# pdm-aula-09 · Navegação
 
 Repositório da aula 9 de PDM (Programação para Dispositivos Móveis), CTeSP DAW, ESTA, Universidade dos Açores, 2026/27.
 
@@ -12,18 +12,17 @@ flutter pub get
 
 Abre a pasta no VS Code. `Ctrl+Shift+P` → *Flutter: Select Device* → o teu Android (ou o Chrome, se o Android ainda não corre no teu portátil). Depois F5: corre a configuração "Tempo Açores (debug)" que já vem no projeto, em `.vscode/launch.json`.
 
-A app é a Tempo Açores do fim da aula 8, com dois ecrãs novos ainda sem ligação: `lib/island_screen.dart` (uma ilha) e `lib/settings_screen.dart` (definições). O formulário de avisos passou para `lib/alerts_screen.dart`. O `go_router` já está no `pubspec.yaml`. Trabalhas nos comentários `TODO 1` a `TODO 4`. `lib/data.dart` tem os dados estáticos e não se altera.
+A app é a Tempo Açores do fim da aula 8, com dois ecrãs novos ainda sem ligação: `lib/island_screen.dart` (uma ilha) e `lib/settings_screen.dart` (definições). O formulário de avisos passou para `lib/alerts_screen.dart`. O `go_router` já está no `pubspec.yaml`. Trabalhas nos comentários `TODO 1` a `TODO 3`. `lib/data.dart` tem os dados estáticos e não se altera.
 
 ## Os passos
 
-O repositório tem um branch por passo. `main` é o ponto de partida; `passo-4` é o estado final.
+O repositório tem um branch por passo. `main` é o ponto de partida; `passo-3` é o estado final.
 
 | Passo | Branch | O que fazes | Na app |
 |---|---|---|---|
 | 1 | `passo-1` | `IslandCard` com um `InkWell` que faz `Navigator.push` do `IslandScreen` e espera o resultado; a estrela do `IslandScreen` faz `Navigator.pop(context, true)`. | Tocar numa ilha abre-a; a estrela volta à grelha e mostra "Pico nos favoritos". |
 | 2 | `passo-2` | `lib/router.dart` com um `GoRouter` (`/` e `/island/:id`), `MaterialApp.router` e `context.push('/island/${island.id}')`. | Igual ao passo 1; no Chrome, o URL muda para `/island/pico`. |
 | 3 | `passo-3` | `StatefulShellRoute.indexedStack` com uma `NavigationBar` de três separadores: Previsão, Avisos e Definições. | Abres uma ilha, vais a Avisos, voltas a Previsão: a ilha continua aberta. |
-| 4 | `passo-4` | `buildTheme` com `ColorScheme.fromSeed` claro e escuro, `themeMode` num `ValueNotifier` e um `SegmentedButton` nas definições. | Escuro muda a app inteira para o tema escuro, sem reiniciar. |
 
 ## Sincronizar com a aula
 

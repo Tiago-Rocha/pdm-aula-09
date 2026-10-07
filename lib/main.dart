@@ -11,9 +11,6 @@ void main() {
 ///
 /// TODO 2: MaterialApp.router with the router from router.dart, instead of
 /// home.
-///
-/// TODO 4: a light and a dark theme from the same seed colour, and themeMode
-/// from settings_screen.dart.
 class WeatherApp extends StatelessWidget {
   const WeatherApp({super.key});
 
