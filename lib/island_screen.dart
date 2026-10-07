@@ -22,16 +22,7 @@ class IslandScreen extends StatelessWidget {
       );
     }
     return Scaffold(
-      appBar: AppBar(
-        title: Text(island.name),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.star_border),
-            tooltip: 'Adicionar aos favoritos',
-            onPressed: () => Navigator.pop(context, true), // close, return true
-          ),
-        ],
-      ),
+      appBar: AppBar(title: Text(island.name)),
       body: ListView(
         children: [
           Image.asset(island.image, height: 240, fit: BoxFit.cover),
