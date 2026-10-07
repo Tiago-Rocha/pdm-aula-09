@@ -4,7 +4,7 @@ import 'island_screen.dart';
 
 /// One island in the grid: photo on top, name below.
 ///
-/// Tapping it opens the island screen and waits for its result.
+/// Tapping it opens the island screen.
 class IslandCard extends StatelessWidget {
   const IslandCard({super.key, required this.island});
 
@@ -15,18 +15,10 @@ class IslandCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: () async {
-          final favorite = await Navigator.push<bool>(
-            context,
-            MaterialPageRoute(builder: (_) => IslandScreen(id: island.id)),
-          );
-          if (favorite == true && context.mounted) {
-            // the card may be gone
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('${island.name} nos favoritos')),
-            );
-          }
-        },
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => IslandScreen(id: island.id)),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
