@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'data.dart';
+import 'island_screen.dart';
 
 /// One island in the grid: photo on top, name below.
 ///
-/// TODO 1: wrap the Column in an InkWell. On tap, open IslandScreen with
-/// Navigator.push and wait for its result; if it is true, show a SnackBar
-/// with the island name and 'nos favoritos'.
+/// Tapping it opens the island screen and waits for its result.
 class IslandCard extends StatelessWidget {
   const IslandCard({super.key, required this.island});
 
@@ -16,15 +14,29 @@ class IslandCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAlias,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(child: Image.asset(island.image, fit: BoxFit.cover)),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Text(island.name, textAlign: TextAlign.center),
-          ),
-        ],
+      child: InkWell(
+        onTap: () async {
+          final favorite = await Navigator.push<bool>(
+            context,
+            MaterialPageRoute(builder: (_) => IslandScreen(id: island.id)),
+          );
+          if (favorite == true && context.mounted) {
+            // the card may be gone
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('${island.name} nos favoritos')),
+            );
+          }
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(child: Image.asset(island.image, fit: BoxFit.cover)),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Text(island.name, textAlign: TextAlign.center),
+            ),
+          ],
+        ),
       ),
     );
   }

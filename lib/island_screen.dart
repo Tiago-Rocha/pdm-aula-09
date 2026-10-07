@@ -28,7 +28,7 @@ class IslandScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.star_border),
             tooltip: 'Adicionar aos favoritos',
-            onPressed: () {}, // TODO 1: close this screen and return true
+            onPressed: () => Navigator.pop(context, true), // close, return true
           ),
         ],
       ),
